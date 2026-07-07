@@ -3,28 +3,30 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECTS, projectHref, type ServiceCategory } from "@/lib/projects";
+import { projectHref } from "@/lib/sanity/queries";
+import type { Project, ServiceCategory } from "@/lib/projects";
 import { clsx } from "@/lib/clsx";
 
 type FilterValue = "all" | ServiceCategory;
 
 /**
- * Works archive — 4-col asymmetric mosaic with filter pills (sand bg to match landing).
- * The mosaic layout has been reshuffled from the mockup to keep 3 rows full.
+ * Works archive — 4-col asymmetric mosaic with filter pills (sand bg to
+ * match landing). Receives projects from an async server-component parent.
+ * The layout order is applied client-side by looking up the ordered slug
+ * list; unknown slugs fall through to the tail of the mosaic.
  */
-export function Archive() {
+export function Archive({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<FilterValue>("all");
 
   const counts = useMemo(() => {
-    const total = PROJECTS.length;
     return {
-      all: total,
-      event: PROJECTS.filter((p) => p.service === "event").length,
-      media: PROJECTS.filter((p) => p.service === "media").length,
-      branding: PROJECTS.filter((p) => p.service === "branding").length,
-      show: PROJECTS.filter((p) => p.service === "show").length,
+      all: projects.length,
+      event: projects.filter((p) => p.service === "event").length,
+      media: projects.filter((p) => p.service === "media").length,
+      branding: projects.filter((p) => p.service === "branding").length,
+      show: projects.filter((p) => p.service === "show").length,
     };
-  }, []);
+  }, [projects]);
 
   const filters: { value: FilterValue; label: string }[] = [
     { value: "all", label: `All (${counts.all})` },
@@ -34,24 +36,25 @@ export function Archive() {
     { value: "show", label: `Show (${counts.show})` },
   ];
 
-  // Reorder projects for the mosaic — 12 projects across 3 rows of the 4-col grid.
   const orderedSlugs = [
-    "half-moon-jungle-party", // tall, col 1 rows 1-2
-    "nfq-summit-asia-2025",   // wide, cols 2-3 row 1
-    "mer-minishow",            // tall, col 4 rows 1-2
-    "gatsby-dinh-doc-lap",     // standard, col 2 row 2
-    "gradion-summit",          // standard, col 3 row 2
-    "bia-hoi-night",           // standard, row 3 col 1
-    "haniff-2024",             // standard, row 3 col 2
-    "bluezone-ecopark",        // standard, row 3 col 3
-    "colorful-china",          // standard, row 3 col 4
-    "deli-lifestyle",          // standard, row 4 col 1
-    "trang-kien",              // standard, row 4 col 2
-    "co-cam",                  // standard, row 4 col 3
+    "half-moon-jungle-party",
+    "nfq-summit-asia-2025",
+    "mer-minishow",
+    "gatsby-dinh-doc-lap",
+    "gradion-summit",
+    "bia-hoi-night",
+    "haniff-2024",
+    "bluezone-ecopark",
+    "colorful-china",
+    "deli-lifestyle",
+    "trang-kien",
+    "co-cam",
   ];
-  const orderedProjects = orderedSlugs
-    .map((s) => PROJECTS.find((p) => p.slug === s))
-    .filter((p): p is (typeof PROJECTS)[number] => Boolean(p));
+  const bySlug = new Map(projects.map((p) => [p.slug, p]));
+  const orderedProjects = [
+    ...orderedSlugs.map((s) => bySlug.get(s)).filter((p): p is Project => Boolean(p)),
+    ...projects.filter((p) => !orderedSlugs.includes(p.slug)),
+  ];
 
   return (
     <section id="archive" className="bg-sand pt-24 pb-0 border-t border-ink">

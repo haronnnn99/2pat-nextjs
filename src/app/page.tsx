@@ -7,7 +7,7 @@ import { ProjectsMosaic } from "@/components/projects-mosaic";
 import { AboutServices } from "@/components/about-services";
 import { CTA } from "@/components/cta";
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <>
       <Nav activePath="/" />

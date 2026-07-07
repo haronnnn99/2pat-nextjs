@@ -15,10 +15,12 @@ import { CaseStudyLayout } from "@/components/layouts/case-study-layout";
 import { PhotoEssayLayout } from "@/components/layouts/photo-essay-layout";
 import { EditorialSpreadLayout } from "@/components/layouts/editorial-spread-layout";
 import { SessionTimelineLayout } from "@/components/layouts/session-timeline-layout";
-import { SUB_PAGES, type SubPageContent } from "@/lib/subpages";
+import { getSubPageContent, getSubPageSlugs } from "@/lib/sanity/queries";
+import type { SubPageContent } from "@/lib/subpages";
 
-export function generateStaticParams() {
-  return Object.keys(SUB_PAGES).map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getSubPageSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -27,7 +29,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const content = SUB_PAGES[slug];
+  const content = await getSubPageContent(slug);
   if (!content) return { title: "Not found" };
   return {
     title: content.title,
@@ -41,7 +43,7 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const content = SUB_PAGES[slug];
+  const content = await getSubPageContent(slug);
   if (!content) notFound();
 
   return (
@@ -54,10 +56,6 @@ export default async function ProjectPage({
   );
 }
 
-/**
- * Layout switcher — each project's `layout` field determines which template
- * renders. Classic layout is kept as a fallback for future projects.
- */
 function renderLayout(content: SubPageContent) {
   switch (content.layout) {
     case "chapter":
@@ -78,8 +76,6 @@ function renderLayout(content: SubPageContent) {
   }
 }
 
-/** Original Phase 1 layout — kept for fallback / future projects that fit
- *  the numbered-cards + gallery + video + credits rhythm. */
 function ClassicLayout({ content }: { content: SubPageContent }) {
   return (
     <>

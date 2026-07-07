@@ -1,19 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Pill } from "./pill";
-import { PROJECTS, projectHref, type Project } from "@/lib/projects";
+import { getProjects } from "@/lib/sanity/queries";
+import { projectHref } from "@/lib/sanity/queries";
+import type { Project } from "@/lib/projects";
 import { clsx } from "@/lib/clsx";
 
 /**
  * Landing projects section — 4-col asymmetric mosaic on sand bg.
- * Shows 8 cards (skips one to keep the sizing pattern balanced).
+ * Async server component: fetches all projects from Sanity and shows 8 featured.
  */
-export function ProjectsMosaic() {
-  const featured = PROJECTS.slice(0, 8); // 8 cards for the landing mosaic
+export async function ProjectsMosaic() {
+  const projects = await getProjects();
+  const featured = projects.slice(0, 8);
 
   return (
     <section id="works" className="bg-sand overflow-hidden">
-      {/* Banner header */}
       <div className="relative px-[var(--spacing-pad-x)] pt-20 pb-14 text-center bg-sand">
         <div
           className="text-[13px] tracking-[0.32em] uppercase text-ink-soft mb-8"
@@ -31,14 +33,12 @@ export function ProjectsMosaic() {
         </h2>
       </div>
 
-      {/* Mosaic grid — 4 cols, asymmetric heights, 12px gap */}
       <div className="grid grid-cols-4 auto-rows-[320px] gap-3 px-3 bg-sand max-md:grid-cols-2 max-md:auto-rows-[240px]">
         {featured.map((project, i) => (
           <MosaicCard key={project.slug} project={project} index={i} />
         ))}
       </div>
 
-      {/* Footer CTA */}
       <div className="bg-sand px-[var(--spacing-pad-x)] pt-20 pb-24 text-center">
         <span className="block text-xs tracking-[0.32em] uppercase text-ink-soft opacity-70 mb-6">
           — more projects in the archive
@@ -82,9 +82,7 @@ function MosaicCard({
         className="object-cover transition-transform duration-[600ms] group-hover:scale-[1.04]"
         priority={index < 3}
       />
-      {/* Gradient over bottom strip where text lives */}
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_55%,rgba(0,0,0,0.78)_100%)] transition-opacity duration-300 group-hover:opacity-90" />
-
       <div className="absolute left-6 right-6 bottom-[22px] flex justify-between items-center gap-4 z-[2] text-paper">
         <span className="font-body font-medium text-[15px] leading-[1.3] tracking-[0.01em]">
           {project.title}

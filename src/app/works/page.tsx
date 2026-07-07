@@ -6,6 +6,7 @@ import { WorksManifesto } from "@/components/works-manifesto";
 import { Archive } from "@/components/archive";
 import { Spotlight } from "@/components/spotlight";
 import { Statement } from "@/components/statement";
+import { getProjects } from "@/lib/sanity/queries";
 
 export const metadata = {
   title: "Works — 2PAT",
@@ -13,15 +14,16 @@ export const metadata = {
     "Every project we've shipped, 2024 — 2025. Event planning, media production, branding and show production.",
 };
 
-export default function WorksPage() {
+export default async function WorksPage() {
+  const projects = await getProjects();
   return (
     <>
       <Nav activePath="/works" />
       <RevealObserver />
       <WorksHero />
       <WorksManifesto />
-      <Archive />
-      <Spotlight />
+      <Archive projects={projects} />
+      <Spotlight projects={projects} />
       <Statement />
       <Footer />
     </>

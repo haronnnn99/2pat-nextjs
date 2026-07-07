@@ -3,18 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PROJECTS, projectHref } from "@/lib/projects";
+import { projectHref } from "@/lib/sanity/queries";
+import type { Project } from "@/lib/projects";
 import { clsx } from "@/lib/clsx";
 
+const FEATURED_SLUGS = [
+  "half-moon-jungle-party",
+  "nfq-summit-asia-2025",
+  "mer-minishow",
+  "colorful-china",
+  "bluezone-ecopark",
+];
+
 /**
- * Featured spotlight — list of 5 project names left, single spotlight image right.
- * Hovering a list item swaps the right image (with fade transition).
+ * Featured spotlight — list of project names left, single spotlight image right.
+ * Hovering a list item swaps the right image (with fade transition). Receives
+ * the full projects list, filters to the featured set locally.
  */
-export function Spotlight() {
-  const featured = PROJECTS.filter((p) =>
-    ["half-moon-jungle-party", "nfq-summit-asia-2025", "mer-minishow", "colorful-china", "bluezone-ecopark"].includes(
-      p.slug,
-    ),
+export function Spotlight({ projects }: { projects: Project[] }) {
+  const bySlug = new Map(projects.map((p) => [p.slug, p]));
+  const featured = FEATURED_SLUGS.map((s) => bySlug.get(s)).filter(
+    (p): p is Project => Boolean(p),
   );
   const [activeSlug, setActiveSlug] = useState(featured[0]?.slug);
 
