@@ -23,6 +23,47 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "bia-hoi-night",
+    title: "Bia Hơi Night",
+    service: "event",
+    serviceLabel: "Corporate Event",
+    year: "2024",
+    location: "Hồ Tràm",
+    meta: "Hồ Tràm · 2024 · Corporate event",
+    brief:
+      "A corporate night on the Hồ Tràm coast, staged as a Vietnamese street beer garden with fire performance and lô tô under the stars.",
+    heroImage: "/portfolio-ref/page-04.png",
+    mosaic: "standard",
+    hasSubPage: true,
+  },
+  {
+    slug: "gatsby-dinh-doc-lap",
+    title: "Gatsby · Dinh Độc Lập",
+    service: "event",
+    serviceLabel: "Corporate Event",
+    year: "2024",
+    location: "Dinh Độc Lập, HCMC",
+    meta: "HCMC · 2024 · Gatsby-themed corporate",
+    brief:
+      "A 1920s Gatsby-themed corporate night held at Dinh Độc Lập — art deco translated into a Vietnamese national landmark.",
+    heroImage: "/portfolio-ref/page-15.png",
+    mosaic: "standard",
+    hasSubPage: true,
+  },
+  {
+    slug: "gradion-summit",
+    title: "Gradion Summit",
+    service: "media",
+    serviceLabel: "Media Production",
+    year: "2024",
+    meta: "2024 · Full-event media coverage",
+    brief:
+      "End-to-end media coverage of Gradion Summit — every session, keynote, and hallway moment captured, cut, and delivered.",
+    heroImage: "/portfolio-ref/page-03.png",
+    mosaic: "standard",
+    hasSubPage: true,
+  },
+  {
     slug: "half-moon-jungle-party",
     title: "Half Moon & Jungle",
     service: "event",

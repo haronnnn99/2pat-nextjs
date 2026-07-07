@@ -91,6 +91,348 @@ export type SubPageContent = {
 };
 
 export const SUB_PAGES: Record<string, SubPageContent> = {
+  "bia-hoi-night": {
+    slug: "bia-hoi-night",
+    title: "Bia Hơi Night — 2PAT",
+    layout: "chapter",
+    meta: "Hồ Tràm · 2024 · Corporate Event",
+    location: "Hồ Tràm",
+    year: "2024",
+    serviceLabel: "Event Production",
+    heroTitle: "BIA HƠI<br />NIGHT",
+    heroDesc:
+      "A corporate night on the Hồ Tràm coast, staged as a Vietnamese street beer garden with fire performance and lô tô under the stars.",
+    heroImage: "/portfolio-ref/page-04.png",
+
+    introEyebrow: "/ THE PREMISE",
+    introSlogan: "corporate night,<br />street soul.",
+    introEm: "— nhậu vibe. lô tô sound. fire above the sand.",
+    introFoot: "Hồ Tràm · 2024 · Beachside corporate night",
+
+    cards: [],
+    chapters: [
+      {
+        num: "01",
+        eyebrow: "01 · Prelude",
+        title: "welcome,<br />mở tiệc.",
+        body: [
+          "Guests arrive at dusk. The corporate crowd steps out of shuttle buses into something that doesn't look like a corporate event — it looks like a Vietnamese street market by the sea. Low plastic stools. Fresh bia hơi. Grilled skewers on charcoal.",
+          "2PAT worked with local contractors in Hồ Tràm to build the entire scene on the beach — hội chợ stalls, lantern-lit paths, and a stage tucked behind the food trucks — so the arrival itself was the first surprise.",
+        ],
+        image: "/portfolio-ref/page-04.png",
+      },
+      {
+        num: "02",
+        eyebrow: "02 · Nhậu",
+        title: "hội chợ<br />bên biển.",
+        body: [
+          "The hội chợ opens: skill games, wooden stalls with prizes, food from ten Vietnamese street vendors, and cold bia hơi poured directly at the counter. The crowd loosens up. Corporate hierarchy dissolves over shared plates of nem nướng.",
+          "Every stall was staffed by local vendors, coordinated by 2PAT — no imported catering, no white-tablecloth pretense. Just Vietnamese street food, done properly, for a corporate audience that would remember it.",
+        ],
+        image: "/portfolio-ref/page-05.png",
+      },
+      {
+        num: "03",
+        eyebrow: "03 · Fire",
+        title: "múa lửa<br />trên cát.",
+        body: [
+          "As the sun sinks past the horizon, fire performers move onto the beach. Traditional Vietnamese street fire performance — not a Cirque du Soleil pastiche, but the real thing you'd find at a night market in Hà Nội or an old street corner in Chợ Lớn.",
+          "The choreography is calibrated to the tide, the wind, and a soundtrack of drums layered over ambient waves. The crowd stops chewing and starts recording.",
+        ],
+        image: "/portfolio-ref/page-06.png",
+      },
+      {
+        num: "04",
+        eyebrow: "04 · Lô tô",
+        title: "gió hát,<br />trăng cười.",
+        body: [
+          "The night closes with hát lô tô — the traditional Vietnamese lottery-song performance — under the moon. Numbers called with rhyming humor. Prizes handed out. A closing act that could only happen in Vietnam.",
+          "By the time the last coach rolls out, the corporate briefing is done, the shared meal is finished, and the guests have taken home a night that reads as culture, not a company outing.",
+        ],
+        image: "/portfolio-ref/page-07.png",
+      },
+    ],
+
+    galleryLabel: "/ THE NIGHT",
+    galleryCount: 8,
+    galleryImages: [
+      "/portfolio-ref/page-04.png",
+      "/portfolio-ref/page-05.png",
+      "/portfolio-ref/page-06.png",
+      "/portfolio-ref/page-07.png",
+      "/portfolio-ref/page-08.png",
+      "/portfolio-ref/page-09.png",
+      "/portfolio-ref/page-10.png",
+      "/portfolio-ref/page-11.png",
+    ],
+
+    videoLabel: "/ RECAP FILM",
+    videoPlaceholder: "/portfolio-ref/page-04.png",
+
+    credits: [
+      { role: "Concept & Direction", name: "2PAT Creative" },
+      { role: "Event Production", name: "2PAT + Hồ Tràm partners" },
+      { role: "Décor & Build", name: "Local Hồ Tràm contractors" },
+      { role: "Fire Performance", name: "Street fire artists" },
+      { role: "Hát Lô Tô", name: "Traditional lô tô troupe" },
+      { role: "Food Vendors", name: "10 Vietnamese street kitchens" },
+      { role: "Media Production", name: "2PAT Media" },
+      { role: "Year", name: "2024" },
+    ],
+    watermark: "BIA HƠI",
+
+    prev: {
+      slug: "mer-minishow",
+      title: "mer minishow",
+      meta: "Show · HCMC · 2025",
+    },
+    next: {
+      slug: "gatsby-dinh-doc-lap",
+      title: "gatsby dinh độc lập",
+      meta: "Event · HCMC · 2024",
+    },
+  },
+
+  "gatsby-dinh-doc-lap": {
+    slug: "gatsby-dinh-doc-lap",
+    title: "Gatsby Dinh Độc Lập — 2PAT",
+    layout: "case-study",
+    meta: "HCMC · 2024 · Corporate Event",
+    location: "Dinh Độc Lập, HCMC",
+    year: "2024",
+    serviceLabel: "Event Production",
+    heroTitle: "GATSBY<br />DINH ĐỘC LẬP",
+    heroDesc:
+      "A 1920s Gatsby-themed corporate night held at Dinh Độc Lập — art deco translated into a Vietnamese national landmark.",
+    heroImage: "/portfolio-ref/page-15.png",
+
+    introEyebrow: "/ THE PREMISE",
+    introSlogan: "art deco,<br />national landmark.",
+    introEm: "— gatsby-era immersion, translated in situ.",
+    introFoot: "HCMC · 2024 · Corporate night at a landmark",
+
+    cards: [],
+
+    headline: "art deco meets a national landmark.",
+    keyMetrics: [
+      { value: "300", label: "guests" },
+      { value: "1", label: "gatsby night" },
+      { value: "12h", label: "install window" },
+      { value: "1920s", label: "period fidelity" },
+    ],
+    brief: {
+      eyebrow: "/ THE BRIEF",
+      heading: "a gatsby night,<br />at a landmark.",
+      body:
+        "A corporate client wanted the world of The Great Gatsby dropped into Dinh Độc Lập — Vietnam's most historically loaded venue. Full 1920s art deco immersion, but reverent to the palace's own architectural voice. One night. Three hundred guests. Zero anachronism.",
+      image: "/portfolio-ref/page-15.png",
+    },
+    answer: {
+      eyebrow: "/ THE ANSWER",
+      heading: "translated,<br />in situ.",
+      body:
+        "2PAT read the palace's colonial art deco geometry and matched the Gatsby period to what was already in the building — champagne coupes at the marble stair, jazz quartet under the mid-century chandeliers, black-tie fashion echoing the palace's original 1960s state-dinner era.",
+      image: "/portfolio-ref/page-10.png",
+    },
+    responsibilities: [
+      {
+        num: "01",
+        title: "Concept",
+        body:
+          "Art deco narrative anchored to Dinh Độc Lập's existing architecture — no pastiche, no imported set pieces that fought the venue.",
+      },
+      {
+        num: "02",
+        title: "Timeline",
+        body:
+          "12-hour install window before doors, tight rehearsal schedule around the palace's public-access constraints. Every hour costed and cued.",
+        highlight: true,
+      },
+      {
+        num: "03",
+        title: "Décor",
+        body:
+          "Custom art deco set design, gold-and-black palette calibrated to the venue's marble and wood tones.",
+      },
+      {
+        num: "04",
+        title: "Fashion",
+        body:
+          "Curated dress code guidance for guests, staff wardrobe designed to match the era without upstaging.",
+      },
+      {
+        num: "05",
+        title: "F&B",
+        body:
+          "Champagne bar, canapé menu, and jazz-age cocktails — full menu programming with the venue's catering partner.",
+      },
+      {
+        num: "06",
+        title: "Program",
+        body:
+          "Run of show including jazz quartet, charleston choreography interludes, and a keynote moment staged on the main marble stair.",
+      },
+    ],
+    testimonial: {
+      eyebrow: "/ VOICES",
+      quote:
+        "we wanted gatsby, but we didn't want a costume party. 2pat gave us gatsby that belonged inside dinh độc lập — not against it.",
+      attribution: "Client · Corporate Event Lead",
+    },
+
+    galleryLabel: "/ THE NIGHT",
+    galleryCount: 8,
+    galleryImages: [
+      "/portfolio-ref/page-15.png",
+      "/portfolio-ref/page-10.png",
+      "/portfolio-ref/page-11.png",
+      "/portfolio-ref/page-12.png",
+      "/portfolio-ref/page-05.png",
+      "/portfolio-ref/page-06.png",
+      "/portfolio-ref/page-07.png",
+      "/portfolio-ref/page-13.png",
+    ],
+
+    videoLabel: "/ RECAP FILM",
+    videoPlaceholder: "/portfolio-ref/page-15.png",
+
+    credits: [
+      { role: "Concept & Direction", name: "2PAT Creative" },
+      { role: "Timeline & Production", name: "2PAT Event Team" },
+      { role: "Décor Design", name: "2PAT & partners" },
+      { role: "Fabrication", name: "Independent contractors" },
+      { role: "F&B Programming", name: "2PAT + venue catering" },
+      { role: "Jazz Quartet", name: "Live musicians" },
+      { role: "Photography", name: "2PAT Media" },
+      { role: "Videography", name: "2PAT Media" },
+      { role: "Venue", name: "Dinh Độc Lập, HCMC" },
+      { role: "Year", name: "2024" },
+    ],
+    watermark: "GATSBY",
+
+    prev: {
+      slug: "bia-hoi-night",
+      title: "bia hơi night",
+      meta: "Event · Hồ Tràm · 2024",
+    },
+    next: {
+      slug: "half-moon-jungle-party",
+      title: "half moon & jungle",
+      meta: "Event · Phan Thiết · 2025",
+    },
+  },
+
+  "gradion-summit": {
+    slug: "gradion-summit",
+    title: "Gradion Summit — 2PAT",
+    layout: "split",
+    splitSummary:
+      "Full-event media coverage for Gradion Summit — every session, keynote, and hallway moment captured, cut, and delivered as a single editorial voice.",
+    meta: "2024 · Media Production",
+    location: "HCMC",
+    year: "2024",
+    serviceLabel: "Media Production",
+    heroTitle: "GRADION<br />SUMMIT",
+    heroDesc:
+      "Full media coverage for Gradion Summit — end-to-end capture and delivery across sessions, keynotes, and program tracks.",
+    heroImage: "/portfolio-ref/page-03.png",
+
+    introEyebrow: "/ THE PREMISE",
+    introSlogan: "full event,<br />one voice.",
+    introEm: "— covered, cut, delivered.",
+    introFoot: "2024 · Full-event media coverage",
+
+    cards: [
+      {
+        num: "01",
+        label: "/ OVERVIEW",
+        heading: "a summit,<br />end-to-end.",
+        body: [
+          "Gradion Summit brought together a program of sessions and keynotes over multiple days. 2PAT owned the complete media layer — from pre-event photography and speaker portraits through session filming, real-time editing, and the delivery of a long-form recap.",
+          "The brief was straightforward: one editorial voice across every touchpoint. The result was a media package that could carry the brand's Summit story for a full year of downstream content.",
+        ],
+        tags: ["Full coverage", "Multi-format", "Editorial voice", "Long-form recap"],
+        variant: "cream",
+        layout: "standard",
+      },
+      {
+        num: "02",
+        label: "/ APPROACH",
+        heading: "embedded crew,<br />parallel edit.",
+        body: [
+          "The crew was embedded on-site for the entire program, not brought in after the fact. Filming, photography, and rough cuts ran in parallel — so daily recaps went out inside 24 hours and the long-form recap was mostly assembled before the last session ended.",
+          "Portrait sets, session B-roll, keynote coverage, and candid documentary footage all moved through the same edit register, so nothing felt bolted on.",
+        ],
+        tags: ["Embedded crew", "Parallel edit", "24hr turnaround", "Portrait sets"],
+        variant: "sand",
+        layout: "split",
+        image: "/portfolio-ref/page-14.png",
+      },
+      {
+        num: "03",
+        label: "/ COVERAGE",
+        heading: "everything,<br />on delivery.",
+        body: [
+          "Across the program the crew shipped a long-form recap, daily highlight cuts, a curated speaker portrait set, and a session photo archive deep enough to fuel a full year of brand comms.",
+        ],
+        metrics: [
+          { value: "Full program", label: "session-by-session coverage" },
+          { value: "1 film", label: "long-form recap" },
+          { value: "300+ stills", label: "curated photo set" },
+        ],
+        variant: "outcome",
+        layout: "split",
+        image: "/portfolio-ref/page-11.png",
+      },
+    ],
+
+    galleryLabel: "/ THE COVERAGE",
+    galleryCount: 15,
+    galleryImages: [
+      "/portfolio-ref/page-03.png",
+      "/portfolio-ref/page-04.png",
+      "/portfolio-ref/page-05.png",
+      "/portfolio-ref/page-06.png",
+      "/portfolio-ref/page-07.png",
+      "/portfolio-ref/page-08.png",
+      "/portfolio-ref/page-09.png",
+      "/portfolio-ref/page-10.png",
+      "/portfolio-ref/page-11.png",
+      "/portfolio-ref/page-12.png",
+      "/portfolio-ref/page-13.png",
+      "/portfolio-ref/page-14.png",
+      "/portfolio-ref/page-15.png",
+      "/portfolio-ref/page-04.png",
+      "/portfolio-ref/page-06.png",
+    ],
+
+    videoLabel: "/ RECAP FILM",
+    videoPlaceholder: "/portfolio-ref/page-03.png",
+
+    credits: [
+      { role: "Creative Direction", name: "2PAT Creative" },
+      { role: "Script", name: "2PAT Media" },
+      { role: "Direction & Filming", name: "2PAT Media" },
+      { role: "Photography", name: "2PAT Media" },
+      { role: "Post-Production", name: "2PAT Media" },
+      { role: "Color Grade", name: "2PAT in-house" },
+      { role: "Client", name: "Gradion" },
+      { role: "Year", name: "2024" },
+    ],
+    watermark: "GRADION",
+
+    prev: {
+      slug: "nfq-summit-asia-2025",
+      title: "nfq summit asia 2025",
+      meta: "Media · HCMC · 2025",
+    },
+    next: {
+      slug: "mer-minishow",
+      title: "mer minishow",
+      meta: "Show · HCMC · 2025",
+    },
+  },
+
   "half-moon-jungle-party": {
     slug: "half-moon-jungle-party",
     title: "Half Moon & Jungle Party — 2PAT",
@@ -246,14 +588,14 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
     watermark: "HALF MOON",
 
     prev: {
+      slug: "gatsby-dinh-doc-lap",
+      title: "gatsby dinh độc lập",
+      meta: "Event · HCMC · 2024",
+    },
+    next: {
       slug: "nfq-summit-asia-2025",
       title: "nfq summit asia 2025",
       meta: "Media · HCMC · 2025",
-    },
-    next: {
-      slug: "mer-minishow",
-      title: "mer minishow",
-      meta: "Show · HCMC · 2025",
     },
   },
 
@@ -358,14 +700,14 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
     watermark: "NFQ SUMMIT",
 
     prev: {
-      slug: "mer-minishow",
-      title: "mer minishow",
-      meta: "Show · HCMC · 2025",
-    },
-    next: {
       slug: "half-moon-jungle-party",
       title: "half moon & jungle",
       meta: "Event · Phan Thiết · 2025",
+    },
+    next: {
+      slug: "gradion-summit",
+      title: "gradion summit",
+      meta: "Media · 2024",
     },
   },
 
@@ -500,14 +842,14 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
     watermark: "MER",
 
     prev: {
-      slug: "half-moon-jungle-party",
-      title: "half moon & jungle",
-      meta: "Event · Phan Thiết · 2025",
+      slug: "gradion-summit",
+      title: "gradion summit",
+      meta: "Media · 2024",
     },
     next: {
-      slug: "nfq-summit-asia-2025",
-      title: "nfq summit asia 2025",
-      meta: "Media · HCMC · 2025",
+      slug: "bia-hoi-night",
+      title: "bia hơi night",
+      meta: "Event · Hồ Tràm · 2024",
     },
   },
 };

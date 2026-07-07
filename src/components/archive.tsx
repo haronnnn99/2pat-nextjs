@@ -34,17 +34,20 @@ export function Archive() {
     { value: "show", label: `Show (${counts.show})` },
   ];
 
-  // Reorder projects for the mosaic — matches the mockup's manual placement.
+  // Reorder projects for the mosaic — 12 projects across 3 rows of the 4-col grid.
   const orderedSlugs = [
     "half-moon-jungle-party", // tall, col 1 rows 1-2
     "nfq-summit-asia-2025",   // wide, cols 2-3 row 1
     "mer-minishow",            // tall, col 4 rows 1-2
-    "haniff-2024",             // standard, col 2 row 2
-    "bluezone-ecopark",        // standard, col 3 row 2
-    "colorful-china",          // standard, row 3 col 1
-    "deli-lifestyle",          // standard, row 3 col 2
-    "trang-kien",              // standard, row 3 col 3
-    "co-cam",                  // standard, row 3 col 4
+    "gatsby-dinh-doc-lap",     // standard, col 2 row 2
+    "gradion-summit",          // standard, col 3 row 2
+    "bia-hoi-night",           // standard, row 3 col 1
+    "haniff-2024",             // standard, row 3 col 2
+    "bluezone-ecopark",        // standard, row 3 col 3
+    "colorful-china",          // standard, row 3 col 4
+    "deli-lifestyle",          // standard, row 4 col 1
+    "trang-kien",              // standard, row 4 col 2
+    "co-cam",                  // standard, row 4 col 3
   ];
   const orderedProjects = orderedSlugs
     .map((s) => PROJECTS.find((p) => p.slug === s))
