@@ -12,6 +12,9 @@ import { ProjectNav } from "@/components/sub/project-nav";
 import { ChapterLayout } from "@/components/layouts/chapter-layout";
 import { SplitLayout } from "@/components/layouts/split-layout";
 import { CaseStudyLayout } from "@/components/layouts/case-study-layout";
+import { PhotoEssayLayout } from "@/components/layouts/photo-essay-layout";
+import { EditorialSpreadLayout } from "@/components/layouts/editorial-spread-layout";
+import { SessionTimelineLayout } from "@/components/layouts/session-timeline-layout";
 import { SUB_PAGES, type SubPageContent } from "@/lib/subpages";
 
 export function generateStaticParams() {
@@ -63,6 +66,12 @@ function renderLayout(content: SubPageContent) {
       return <SplitLayout content={content} />;
     case "case-study":
       return <CaseStudyLayout content={content} />;
+    case "photo-essay":
+      return <PhotoEssayLayout content={content} />;
+    case "editorial-spread":
+      return <EditorialSpreadLayout content={content} />;
+    case "session-timeline":
+      return <SessionTimelineLayout content={content} />;
     case "classic":
     default:
       return <ClassicLayout content={content} />;

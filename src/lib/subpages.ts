@@ -18,7 +18,24 @@ export type ProjectCard = {
 
 /** Determines which layout renderer /works/[slug] uses. Each project can be
  *  showcased with a different structure per anh 2026-07-07. */
-export type ProjectLayout = "classic" | "chapter" | "split" | "case-study";
+export type ProjectLayout =
+  | "classic"
+  | "chapter"
+  | "split"
+  | "case-study"
+  | "photo-essay"      // Bia Hơi — full-bleed images + Anton overlay captions
+  | "editorial-spread" // Gatsby — magazine article with dropcaps + pull quotes
+  | "session-timeline"; // Gradion — vertical timeline with time markers
+
+/** Optional session data for the timeline layout. */
+export type Session = {
+  day: string;
+  time: string;
+  title: string;
+  speaker?: string;
+  note?: string;
+  image?: string;
+};
 
 export type Chapter = {
   num: string;
@@ -75,6 +92,9 @@ export type SubPageContent = {
   // Split layout — NFQ (uses cards + gallery images already)
   splitSummary?: string; // sticky left summary paragraph
 
+  // Session-timeline layout — Gradion
+  sessions?: Session[];
+
   galleryLabel: string;
   galleryCount: number;
   galleryImages: string[];
@@ -94,7 +114,7 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "bia-hoi-night": {
     slug: "bia-hoi-night",
     title: "Bia Hơi Night — 2PAT",
-    layout: "chapter",
+    layout: "photo-essay",
     meta: "Hồ Tràm · 2024 · Corporate Event",
     location: "Hồ Tràm",
     year: "2024",
@@ -196,7 +216,7 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "gatsby-dinh-doc-lap": {
     slug: "gatsby-dinh-doc-lap",
     title: "Gatsby Dinh Độc Lập — 2PAT",
-    layout: "case-study",
+    layout: "editorial-spread",
     meta: "HCMC · 2024 · Corporate Event",
     location: "Dinh Độc Lập, HCMC",
     year: "2024",
@@ -325,7 +345,7 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "gradion-summit": {
     slug: "gradion-summit",
     title: "Gradion Summit — 2PAT",
-    layout: "split",
+    layout: "session-timeline",
     splitSummary:
       "Full-event media coverage for Gradion Summit — every session, keynote, and hallway moment captured, cut, and delivered as a single editorial voice.",
     meta: "2024 · Media Production",
@@ -341,6 +361,71 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
     introSlogan: "full event,<br />one voice.",
     introEm: "— covered, cut, delivered.",
     introFoot: "2024 · Full-event media coverage",
+
+    sessions: [
+      {
+        day: "Day 01",
+        time: "09:00",
+        title: "opening keynote",
+        speaker: "Founder + moderator",
+        note: "Wide-angle capture, boom mic. Photography + main-cam.",
+        image: "/portfolio-ref/page-03.png",
+      },
+      {
+        day: "Day 01",
+        time: "11:30",
+        title: "product roadmap panel",
+        speaker: "Product team",
+        note: "3-camera setup. Session photographer roaming the room.",
+        image: "/portfolio-ref/page-04.png",
+      },
+      {
+        day: "Day 01",
+        time: "14:00",
+        title: "customer stories",
+        speaker: "Selected clients",
+        note: "Portrait sets shot between sessions. Documentary crew on standby.",
+        image: "/portfolio-ref/page-05.png",
+      },
+      {
+        day: "Day 01",
+        time: "18:00",
+        title: "welcome reception",
+        note: "Ambient coverage. Candid photography. First daily recap edit begins.",
+        image: "/portfolio-ref/page-06.png",
+      },
+      {
+        day: "Day 02",
+        time: "09:30",
+        title: "workshop tracks",
+        speaker: "Multiple facilitators",
+        note: "3 rooms in parallel. Dedicated camera per room.",
+        image: "/portfolio-ref/page-07.png",
+      },
+      {
+        day: "Day 02",
+        time: "13:00",
+        title: "keynote session",
+        speaker: "Industry lead",
+        note: "Prime slot. Full stage coverage + close-ups + audience reactions.",
+        image: "/portfolio-ref/page-08.png",
+      },
+      {
+        day: "Day 02",
+        time: "17:00",
+        title: "closing session",
+        speaker: "Founder wrap-up",
+        note: "Final speech. Live-cut ready for social within 30 min.",
+        image: "/portfolio-ref/page-09.png",
+      },
+      {
+        day: "Day 02",
+        time: "20:00",
+        title: "delivery + wrap",
+        note: "Long-form recap final edit. All portrait sets + session photos delivered.",
+        image: "/portfolio-ref/page-10.png",
+      },
+    ],
 
     cards: [
       {
