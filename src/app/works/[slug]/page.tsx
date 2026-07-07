@@ -9,7 +9,10 @@ import { Gallery } from "@/components/sub/gallery";
 import { VideoBlock } from "@/components/sub/video-block";
 import { Credits } from "@/components/sub/credits";
 import { ProjectNav } from "@/components/sub/project-nav";
-import { SUB_PAGES } from "@/lib/subpages";
+import { ChapterLayout } from "@/components/layouts/chapter-layout";
+import { SplitLayout } from "@/components/layouts/split-layout";
+import { CaseStudyLayout } from "@/components/layouts/case-study-layout";
+import { SUB_PAGES, type SubPageContent } from "@/lib/subpages";
 
 export function generateStaticParams() {
   return Object.keys(SUB_PAGES).map((slug) => ({ slug }));
@@ -42,7 +45,35 @@ export default async function ProjectPage({
     <>
       <Nav activePath="/works" />
       <RevealObserver />
+      {renderLayout(content)}
+      <Footer />
+    </>
+  );
+}
 
+/**
+ * Layout switcher — each project's `layout` field determines which template
+ * renders. Classic layout is kept as a fallback for future projects.
+ */
+function renderLayout(content: SubPageContent) {
+  switch (content.layout) {
+    case "chapter":
+      return <ChapterLayout content={content} />;
+    case "split":
+      return <SplitLayout content={content} />;
+    case "case-study":
+      return <CaseStudyLayout content={content} />;
+    case "classic":
+    default:
+      return <ClassicLayout content={content} />;
+  }
+}
+
+/** Original Phase 1 layout — kept for fallback / future projects that fit
+ *  the numbered-cards + gallery + video + credits rhythm. */
+function ClassicLayout({ content }: { content: SubPageContent }) {
+  return (
+    <>
       <ProjectHero
         title={content.heroTitle}
         desc={content.heroDesc}
@@ -56,28 +87,21 @@ export default async function ProjectPage({
         em={content.introEm}
         foot={content.introFoot}
       />
-
       {content.cards.map((card) => (
         <PCard key={card.num} card={card} />
       ))}
-
       <Gallery
         label={content.galleryLabel}
         count={content.galleryCount}
         images={content.galleryImages}
       />
-
       <VideoBlock
         label={content.videoLabel}
         embedUrl={content.videoEmbedUrl}
         placeholder={content.videoPlaceholder}
       />
-
       <Credits credits={content.credits} watermark={content.watermark} />
-
       <ProjectNav prev={content.prev} next={content.next} />
-
-      <Footer />
     </>
   );
 }

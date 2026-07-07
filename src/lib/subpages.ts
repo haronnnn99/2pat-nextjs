@@ -16,9 +16,35 @@ export type ProjectCard = {
   image?: string; // required for split variant
 };
 
+/** Determines which layout renderer /works/[slug] uses. Each project can be
+ *  showcased with a different structure per anh 2026-07-07. */
+export type ProjectLayout = "classic" | "chapter" | "split" | "case-study";
+
+export type Chapter = {
+  num: string;
+  eyebrow: string; // e.g. "01 · Dusk"
+  title: string; // Anton huge headline for the chapter (may include <br />)
+  body: string[];
+  image: string;
+};
+
+export type Responsibility = {
+  num: string;
+  title: string;
+  body: string;
+  highlight?: boolean;
+};
+
+export type Testimonial = {
+  eyebrow: string;
+  quote: string;
+  attribution: string;
+};
+
 export type SubPageContent = {
   slug: string;
   title: string;
+  layout: ProjectLayout;
   meta: string; // hero meta overlay text
   location: string;
   year: string;
@@ -34,6 +60,20 @@ export type SubPageContent = {
   introFoot: string;
 
   cards: ProjectCard[];
+
+  // Chapter layout — Half Moon
+  chapters?: Chapter[];
+
+  // Case-study layout — Mer
+  headline?: string; // 1-line summary above metric bar
+  keyMetrics?: { value: string; label: string }[];
+  brief?: { eyebrow: string; heading: string; body: string; image: string };
+  answer?: { eyebrow: string; heading: string; body: string; image: string };
+  responsibilities?: Responsibility[];
+  testimonial?: Testimonial;
+
+  // Split layout — NFQ (uses cards + gallery images already)
+  splitSummary?: string; // sticky left summary paragraph
 
   galleryLabel: string;
   galleryCount: number;
@@ -54,6 +94,7 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "half-moon-jungle-party": {
     slug: "half-moon-jungle-party",
     title: "Half Moon & Jungle Party — 2PAT",
+    layout: "chapter",
     meta: "Phan Thiết · 2025 · Event Production",
     location: "Phan Thiết",
     year: "2025",
@@ -133,6 +174,49 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
       },
     ],
 
+    chapters: [
+      {
+        num: "01",
+        eyebrow: "01 · Dusk",
+        title: "the coast<br />awakens.",
+        body: [
+          "The night opens at dusk with low frequencies, mimicking the slow awakening of a tropical forest at the shoreline. Fires are lit, palms glow soft under UV, and the first bodies find the sand.",
+          "The stage sits calibrated to the wind. The setlist starts warm. Everything before this moment — recce, licensing, build, rehearsal — was to earn the right to press play.",
+        ],
+        image: "/portfolio-ref/page-06.png",
+      },
+      {
+        num: "02",
+        eyebrow: "02 · Rise",
+        title: "moonlight<br />finds the tide.",
+        body: [
+          "As the moon rises, bioluminescent palms ignite in waves. Fire performers trace the line between sea and stage. The soundscape opens up — layered synth over a slow bass pulse — and the crowd starts to move as a single body.",
+          "This is where UV palette, Cham motifs, and coastal materials cohere into a single visual identity. Not a Full Moon Party imitation — a Vietnamese one.",
+        ],
+        image: "/portfolio-ref/page-07.png",
+      },
+      {
+        num: "03",
+        eyebrow: "03 · Crest",
+        title: "the half-moon<br />ignites.",
+        body: [
+          "By midnight the rhythm crests. The half-moon centerpiece — the visual anchor of the entire concept — lights up above the stage. Fire choreography peaks. Every cue lands where it was rehearsed.",
+          "This is the moment the whole production was built for: a collective release, a shared breath, and a room that will remember it for years.",
+        ],
+        image: "/portfolio-ref/page-08.png",
+      },
+      {
+        num: "04",
+        eyebrow: "04 · Dawn",
+        title: "embers, then<br />the morning.",
+        body: [
+          "The arc ends at dawn with embers settling into the sand: a soft return to nature, like the morning after a dream. The last performers hand the room back to the coast.",
+          "Meanwhile, the media crew is still working — the recap film that would carry this night beyond its audience for the next twelve months was already being cut in parallel.",
+        ],
+        image: "/portfolio-ref/page-10.png",
+      },
+    ],
+
     galleryLabel: "/ CAPTURED MOMENTS",
     galleryCount: 8,
     galleryImages: [
@@ -176,6 +260,9 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "nfq-summit-asia-2025": {
     slug: "nfq-summit-asia-2025",
     title: "NFQ Summit Asia 2025 — 2PAT",
+    layout: "split",
+    splitSummary:
+      "Seven days. One embedded crew. Every session, hallway moment, and field trip captured and turned into a single editorial voice — recap film, daily highlight cuts, and a curated photo set that carried the brand for a full year.",
     meta: "HCMC · 2025 · Media Production",
     location: "HCMC",
     year: "2025",
@@ -285,6 +372,42 @@ export const SUB_PAGES: Record<string, SubPageContent> = {
   "mer-minishow": {
     slug: "mer-minishow",
     title: "Mer Minishow — 2PAT",
+    layout: "case-study",
+    headline: "one night. full-stack producer. zero re-takes.",
+    keyMetrics: [
+      { value: "1", label: "night live" },
+      { value: "14", label: "songs licensed" },
+      { value: "90", label: "min set, no breaks" },
+      { value: "S/O", label: "intimate venue" },
+    ],
+    brief: {
+      eyebrow: "/ THE BRIEF",
+      heading: "a portfolio night,<br />done right.",
+      body:
+        "Teacher Malvin wanted a proper stage — not a recital. A curated setlist of originals and covers, fully licensed, with staging, lighting, and capture that would carry the performance beyond the room. One night only.",
+      image: "/portfolio-ref/page-09.png",
+    },
+    answer: {
+      eyebrow: "/ THE ANSWER",
+      heading: "we owned<br />the whole thing.",
+      body:
+        "2PAT served as full-stack producer — concept, licensing, venue, stage, sound, lighting, media. Six roles, one team, one night. Every song cleared before doors opened. Every cue rehearsed before the audience arrived.",
+      image: "/portfolio-ref/page-08.png",
+    },
+    responsibilities: [
+      { num: "01", title: "Concept", body: "Narrative shape, audience tone, and the 90-minute arc — built around Malvin's personal repertoire." },
+      { num: "02", title: "Licensing", body: "Music rights for every song on the setlist. Venue permits, performance licenses, public-show paperwork — cleared before doors opened.", highlight: true },
+      { num: "03", title: "Venue", body: "Scouting, acoustic check, contract, and night-of coordination — sourcing the right room for an intimate format." },
+      { num: "04", title: "Stage", body: "Set design, lighting plot, build — calibrated to the venue's lines and the show's narrative beats." },
+      { num: "05", title: "Sound", body: "Engineering, FOH mix, monitors, line check — every cue rehearsed and timed before the audience walked in." },
+      { num: "06", title: "Media", body: "Filming, photography, and the recap edit — turning a one-night live moment into a year-round portfolio asset." },
+    ],
+    testimonial: {
+      eyebrow: "/ VOICES",
+      quote:
+        "every performer needs a producer who treats the night like it's their own. 2pat held the licenses, the lights, the timing — i held the mic.",
+      attribution: "Teacher Malvin · Performer & Creative Lead",
+    },
     meta: "HCMC · 2025 · Show Production",
     location: "HCMC",
     year: "2025",
