@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  2PAT Logo — Red variant (#e63946)
+  Approximation recreated 2026-06-10 from portfolio page 1.
+  TODO: Replace with original vector from designer when available.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" fill="none" stroke="#e63946" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- SUN — semicircle + rays -->
+  <g id="sun">
+    <!-- Main sun body (semicircle on top) -->
+    <path d="M 140 160 A 60 60 0 0 1 260 160" />
+    <!-- Rays (10 petals around the upper half) -->
+    <g stroke-width="5" fill="#e63946">
+      <path d="M 200 78 q -2 -8 0 -22 q 2 14 0 22 z" />
+      <path d="M 168 84 q -4 -7 -6 -21 q 7 12 6 21 z" />
+      <path d="M 232 84 q 4 -7 6 -21 q -7 12 -6 21 z" />
+      <path d="M 138 102 q -6 -5 -14 -16 q 11 9 14 16 z" />
+      <path d="M 262 102 q 6 -5 14 -16 q -11 9 -14 16 z" />
+      <path d="M 118 132 q -8 -2 -20 -10 q 14 6 20 10 z" />
+      <path d="M 282 132 q 8 -2 20 -10 q -14 6 -20 10 z" />
+      <path d="M 112 162 q -9 0 -22 -4 q 16 3 22 4 z" />
+      <path d="M 288 162 q 9 0 22 -4 q -16 3 -22 4 z" />
+    </g>
+  </g>
+
+  <!-- INFINITY / CLOUD BODY — two interlocking loops -->
+  <g id="infinity">
+    <!-- Left loop -->
+    <path d="M 200 200
+             C 200 200, 130 175, 100 220
+             C 70 265, 100 305, 145 305
+             C 185 305, 200 270, 200 250" />
+    <!-- Right loop -->
+    <path d="M 200 200
+             C 200 200, 270 175, 300 220
+             C 330 265, 300 305, 255 305
+             C 215 305, 200 270, 200 250" />
+    <!-- Central "2" stroke (the brand mark in the middle) -->
+    <path d="M 195 215
+             C 200 205, 215 205, 215 220
+             C 215 235, 195 260, 192 285
+             L 218 285" stroke-width="6" />
+  </g>
+
+  <!-- 2PAT WORDMARK -->
+  <text x="200" y="430"
+        text-anchor="middle"
+        font-family="Anton, 'Helvetica Neue', Impact, sans-serif"
+        font-size="92"
+        font-weight="400"
+        fill="#e63946"
+        stroke="none"
+        letter-spacing="-2">2PAT</text>
+</svg>

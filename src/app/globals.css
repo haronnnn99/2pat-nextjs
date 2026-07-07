@@ -76,3 +76,19 @@ img { display: block; max-width: 100%; height: auto; }
   [data-delay="4"] { transition-delay: 0.32s; }
   [data-delay="5"] { transition-delay: 0.40s; }
 }
+
+/* ============================================================
+   SCRIBBLE ACCENT (hand-drawn SVG strokes for headline callouts)
+   ============================================================ */
+.scribble-stroke {
+  stroke: var(--color-orange);
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.scribble-stroke-thin {
+  stroke: var(--color-orange);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}

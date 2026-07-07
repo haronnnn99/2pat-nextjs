@@ -16,28 +16,37 @@ export function Footer() {
         </div>
 
         <FooterCol title="Pages">
-          <FooterLink href="/#about">About</FooterLink>
-          <FooterLink href="/works">Works</FooterLink>
-          <FooterLink href="/contact">Contact</FooterLink>
+          <FooterItem>
+            <FooterLink href="/#about">About</FooterLink>
+          </FooterItem>
+          <FooterItem>
+            <FooterLink href="/works">Works</FooterLink>
+          </FooterItem>
+          <FooterItem>
+            <FooterLink href="/contact">Contact</FooterLink>
+          </FooterItem>
         </FooterCol>
 
         <FooterCol title="Services">
-          <FooterLink href="#">Event</FooterLink>
-          <FooterLink href="#">Media</FooterLink>
-          <FooterLink href="#">Branding</FooterLink>
-          <FooterLink href="#">Show</FooterLink>
+          <FooterItem><FooterLink href="#">Event</FooterLink></FooterItem>
+          <FooterItem><FooterLink href="#">Media</FooterLink></FooterItem>
+          <FooterItem><FooterLink href="#">Branding</FooterLink></FooterItem>
+          <FooterItem><FooterLink href="#">Show</FooterLink></FooterItem>
         </FooterCol>
 
         <FooterCol title="Contact">
-          <li>contact@2pat-vn.com</li>
-          <li>035-322-0598</li>
-          <li>HCMC, Vietnam</li>
-          <li className="mt-3">
-            <FooterLink href="#">IG</FooterLink> ·{" "}
-            <FooterLink href="#">FB</FooterLink> ·{" "}
-            <FooterLink href="#">YT</FooterLink> ·{" "}
+          <FooterItem>contact@2pat-vn.com</FooterItem>
+          <FooterItem>035-322-0598</FooterItem>
+          <FooterItem>HCMC, Vietnam</FooterItem>
+          <FooterItem className="mt-3 flex gap-1.5">
+            <FooterLink href="#">IG</FooterLink>
+            <span>·</span>
+            <FooterLink href="#">FB</FooterLink>
+            <span>·</span>
+            <FooterLink href="#">YT</FooterLink>
+            <span>·</span>
             <FooterLink href="#">TikTok</FooterLink>
-          </li>
+          </FooterItem>
         </FooterCol>
       </div>
 
@@ -66,6 +75,16 @@ function FooterCol({
   );
 }
 
+function FooterItem({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return <li className={className}>{children}</li>;
+}
+
 function FooterLink({
   href,
   children,
@@ -74,10 +93,8 @@ function FooterLink({
   children: React.ReactNode;
 }) {
   return (
-    <li>
-      <Link href={href} className="hover:text-orange transition-colors">
-        {children}
-      </Link>
-    </li>
+    <Link href={href} className="hover:text-orange transition-colors">
+      {children}
+    </Link>
   );
 }
